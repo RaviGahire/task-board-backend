@@ -16,3 +16,6 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 // ─────────────────────────────────────────
 // ROUTES IMPORT & DECLARATION
 // ─────────────────────────────────────────
+import projectRouter from "./Routes/project.routes.js"
+
+app.use("/api/v1/projects", projectRouter)
