@@ -10,7 +10,6 @@ import {Task} from "../Models/tasks.model.js";
 
 export const getAllProjects = async (req, res) => {
     try {
-
         const projectsWithCounts = await Project.aggregate([
             {
                 $lookup: {
@@ -154,7 +153,7 @@ export const deleteProject = async (req, res) => {
     } catch (error) {
         const statusCode = error.statusCode || 500;
         return res.status(statusCode).json(
-            new ApiError(statusCode, error.message || "Failed to delete project")
+            new ApiError(500, error.message || "Failed to delete project")
         );
     }
 };
