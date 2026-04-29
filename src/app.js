@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 // ─────────────────────────────────────────
 import projectsRouter from "./Routes/projects.routes.js";
 import tasksRouter from "./Routes/tasks.routes.js";
-// import commentsRouter from "./Routes/comments.routes.js";
+import commentsRouter from "./Routes/comments.routes.js";
 // import dashboardRouter from "./Routes/dashboard.routes.js";
 
 // ─────────────────────────────────────────
@@ -26,5 +26,5 @@ import tasksRouter from "./Routes/tasks.routes.js";
 // ─────────────────────────────────────────
 app.use("/api/v1/projects", projectsRouter); 
 app.use("/api/v1/tasks", tasksRouter);       
-// app.use("/api/comments", commentsRouter); 
+app.use("/api/v1/comments", commentsRouter); 
 // app.use("/api/dashboard", dashboardRouter); 
