@@ -2,33 +2,36 @@ import mongoose from "mongoose";
 import { Schema } from "mongoose";
 
 const projectSchema = new Schema({
-  name: { 
-    type: String, 
-    required: true, 
-    maxlength: 100, 
-    unique: true, 
-    trim: true 
+  name: {
+    type: String,
+    required: true,
+    maxlength: 100,
+    unique: true,
+    trim: true
   },
-  description: { 
-    type: String, 
-    maxlength: 300 
+  description: {
+    type: String,
+    maxlength: 300
   }
-}, { 
-  timestamps: true 
+}, {
+  timestamps: true
 });
 
 // ─────────────────────────────────────────
 // Delete Tasks and their Comments when Project is deleted
 // ─────────────────────────────────────────
-projectSchema.pre('findOneAndDelete', async function(next) {
-  const doc = await this.model.findOne(this.getQuery());
-  if (doc) {
-    await mongoose.model('Task').deleteMany({ projectId: doc._id });
-  }
-  next();
-});
+// projectSchema.pre('findOneAndDelete', async function() {
+  
+//   const doc = await this.model.findOne(this.getQuery());
+  
+//   if (doc) {
+   
+//     await mongoose.model('Task').deleteMany({ projectId: doc._id });
+//     await mongoose.model('Comment').deleteMany({ projectId: doc._id });
+//   }
+// });
 
 
 
 
-export const Project = mongoose.model("Project",projectSchema)
+export const Project = mongoose.model("Project", projectSchema)

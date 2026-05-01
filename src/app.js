@@ -13,7 +13,6 @@ app.use(cors({
 app.use(express.json({ limit: "16kb" }));
 app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 
-
 // ─────────────────────────────────────────
 // Structured error res
 // ─────────────────────────────────────────
@@ -40,7 +39,7 @@ import dashboardRouter from "./Routes/dashboard.routes.js";
 // ─────────────────────────────────────────
 // ENDPOINTS
 // ─────────────────────────────────────────
-app.use("/api/v1/projects", projectsRouter); 
-app.use("/api/v1/tasks", tasksRouter);       
-app.use("/api/v1/comments", commentsRouter); 
-app.use("/api/v1/dashboard", dashboardRouter); 
+app.use("/api/projects", projectsRouter); 
+app.use("/api/tasks", tasksRouter);       
+app.use("/api/comments", commentsRouter); 
+app.use("/api/dashboard", dashboardRouter); 

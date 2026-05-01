@@ -136,11 +136,15 @@ export const getProjectById = async (req, res) => {
 };
 
 //delete project by id
-export const deleteProject = async (req, res) => {
+export const deleteProject = async (req, res , next) => {
     try {
         const { id } = req.params;
 
+        // console.log(id)
+
         const project = await Project.findByIdAndDelete(id);
+
+        // console.log(project)
 
         if (!project) {
             throw new ApiError(404, "Project not found");
@@ -156,6 +160,7 @@ export const deleteProject = async (req, res) => {
             new ApiError(500, error.message || "Failed to delete project")
         );
     }
+    next(error)
 };
 
 //update projects

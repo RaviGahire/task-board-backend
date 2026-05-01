@@ -13,7 +13,7 @@ import {
     updateTask
 } from "../Controllers/tasks.controller.js";
 
-router.route('/projects/:projectId/tasks')
+router.route('/project/:projectId/tasks')
     .get(getTasksByProject)
     .post(createTask)
 

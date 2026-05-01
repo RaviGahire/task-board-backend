@@ -10,7 +10,7 @@ import {
     updateProject,
     deleteProject,
     getProjectById,
-  
+
 } from "../Controllers/project.controller.js";
 
 //List all projects with task count per status

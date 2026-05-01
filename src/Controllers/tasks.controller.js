@@ -13,6 +13,8 @@ export const getTasksByProject = async (req, res) => {
     try {
         const { projectId } = req.params;
 
+        // console.log("project",projectId)
+
         // console.log(projectId)
         const {
             status,
@@ -67,18 +69,19 @@ export const getTasksByProject = async (req, res) => {
 export const createTask = async (req, res) => {
     try {
         const { projectId } = req.params;
+        console.log("Project Id" , projectId)
+        console.log("task data",req.body)
         if (!projectId) {
             throw new ApiError(401, "Please provide project Id")
         }
 
-
         const task = await Task.create({ ...req.body, projectId });
-
+``
         return res.status(201)
             .json(new ApiResponse(201, task, "Task created successfully"));
     } catch (error) {
         return res.status(400)
-            .json(new ApiError(400, "Validation Failed", error.errors));
+            .json(new ApiError(400, " Task careation failed", error.errors));
     }
 };
 

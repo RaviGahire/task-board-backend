@@ -10,7 +10,7 @@ dotenv.config({path: './.env'});
 // ─────────────────────────────────────────
 // fallback port
 // ─────────────────────────────────────────
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT ;
 
 // ─────────────────────────────────────────
 // Start Server
